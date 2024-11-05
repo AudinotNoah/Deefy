@@ -22,7 +22,7 @@ class Login extends Action {
 
     protected function post(): string {
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        $password = $_POST['password'];
         try{
             AuthnProvider::signin($email, $password);
             return "Succes";

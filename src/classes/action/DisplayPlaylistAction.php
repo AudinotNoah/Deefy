@@ -21,7 +21,7 @@ class DisplayPlaylistAction extends Action {
                 Authz::checkPlaylistOwner($id); // active une erreur si faux
                 $playlist = $repo->findPlaylistById($id);
     
-                if ($playlist === null) return "Pas de playlist trouvée.";
+                if ($playlist === null) return "<p>Pas de playlist trouvée.</p>";
                 $_SESSION['playlist'] = serialize($playlist);
     
                 $renderer = new AudioListRenderer($playlist);

@@ -27,9 +27,9 @@ class AddUserAction extends Action {
     }
 
     protected function post(): string {
-        $email = $_POST['email'];
-        $password = $_POST['password'] ;
-        $passwordConfirmation = $_POST['password_confirmation'];
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $password = htmlspecialchars($_POST['password'], ENT_QUOTES, 'UTF-8');
+        $passwordConfirmation = htmlspecialchars($_POST['password_confirmation'], ENT_QUOTES, 'UTF-8');
 
         try {
             AuthnProvider::register($email, $password, $passwordConfirmation);

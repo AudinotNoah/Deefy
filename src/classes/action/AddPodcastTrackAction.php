@@ -36,10 +36,10 @@ class AddPodcastTrackAction extends Action{
 
     protected function post(): string
     {
-        $track_name = filter_var($_POST['track_name'], FILTER_SANITIZE_SPECIAL_CHARS);
-        $track_author = filter_var($_POST['track_author'], FILTER_SANITIZE_SPECIAL_CHARS);
-        $track_date = filter_var($_POST['track_date'], FILTER_SANITIZE_SPECIAL_CHARS);
-        $track_genre = filter_var($_POST['track_genre'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $track_name = htmlspecialchars(filter_var($_POST['track_name'], FILTER_SANITIZE_SPECIAL_CHARS), ENT_QUOTES, 'UTF-8');
+        $track_author = htmlspecialchars(filter_var($_POST['track_author'], FILTER_SANITIZE_SPECIAL_CHARS), ENT_QUOTES, 'UTF-8');
+        $track_date = htmlspecialchars(filter_var($_POST['track_date'], FILTER_SANITIZE_SPECIAL_CHARS), ENT_QUOTES, 'UTF-8');
+        $track_genre = htmlspecialchars(filter_var($_POST['track_genre'], FILTER_SANITIZE_SPECIAL_CHARS), ENT_QUOTES, 'UTF-8');
 
         $destination_dir = realpath(__DIR__ . '/../../../audio') . '/';
         $nom_random = uniqid('track_', true) . '.mp3'; // normalement ça donne un nom unique donc pas de probleme
