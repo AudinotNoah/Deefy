@@ -175,7 +175,7 @@ class DeefyRepository {
         } else {
             $stmt = $this->pdo->prepare("
                 SELECT p.id, p.nom 
-                FROM Playlist p
+                FROM playlist p
                 JOIN user2playlist u2p ON p.id = u2p.id_pl
                 WHERE u2p.id_user = :userId
             ");
