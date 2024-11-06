@@ -2,6 +2,6 @@
     Require all denied
 </Files>
 
-<Files "main.php">
+<Files "index.php">
     Require all granted
 </Files>
