@@ -89,6 +89,7 @@ class AddPodcastTrackAction extends Action{
             $repo->addTrack($trackData, $playlistId, count($PL->pistes));
 
             $renderer = new AudioListRenderer($PL);
+            $_SESSION['playlist'] = serialise($PL);
             $playlist_html = $renderer->render(1);
 
 
