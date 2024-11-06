@@ -14,10 +14,19 @@ class DeefyRepository {
     private static ?DeefyRepository $instance = null;
     private static array $config = [];
 
-    private function __construct(array $conf) {
-        $this->pdo = new PDO($conf['dsn'], $conf['user'], $conf['pass'], [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
+    private function __construct()
+    {
+        try {
+            $this->pdo = new PDO(
+                self::$config['dsn'],
+                self::$config['username'],
+                self::$config['password']
+            );
+
+        } catch (PDOException $e) {
+            echo 'Erreur de connexion à la base de données : ' . htmlspecialchars($e->getMessage());
+            exit;
+        }
     }
 
     public static function getInstance(): DeefyRepository {
