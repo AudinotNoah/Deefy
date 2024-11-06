@@ -1,4 +1,4 @@
-DirectoryIndex index.php
+# Restrict access to everything except index.php
 <Files "*">
     Require all denied
 </Files>
@@ -6,3 +6,11 @@ DirectoryIndex index.php
 <Files "index.php">
     Require all granted
 </Files>
+
+# Set the default file to index.php
+DirectoryIndex index.php
+
+# Optionally, if you want a redirect rule as well
+RewriteEngine On
+RewriteCond %{REQUEST_URI} /Deefy/$
+RewriteRule ^(.*)$ /Deefy/index.php [L,R=301]
