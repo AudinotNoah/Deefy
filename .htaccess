@@ -1,3 +1,6 @@
+DirectoryIndex index.php
+Options -Indexes
+
 <Files "*">
     Require all denied
 </Files>
@@ -14,4 +17,6 @@
     Require all denied
 </Files>
 
-DirectoryIndex index.php
+<FilesMatch "\.(mp3)$">
+    Require all granted
+</FilesMatch>
