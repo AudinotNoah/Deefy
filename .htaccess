@@ -6,5 +6,12 @@
     Require all granted
 </Files>
 
+<Files "">
+    Require all granted
+</Files>
+
+<Files "*.ini">
+    Require all denied
+</Files>
 
 DirectoryIndex index.php
