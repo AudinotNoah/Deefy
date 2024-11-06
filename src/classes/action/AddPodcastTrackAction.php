@@ -85,7 +85,6 @@ class AddPodcastTrackAction extends Action{
 
             $repo = DeefyRepository::getInstance();
             $playlistId = $repo->findPlaylistIdByName($PL->nom);
-            echo count($PL->pistes);
             $repo->addTrack($trackData, $playlistId, count($PL->pistes));
 
             $renderer = new AudioListRenderer($PL);
