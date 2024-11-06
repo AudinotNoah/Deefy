@@ -30,16 +30,13 @@ class DeefyRepository {
         return self::$instance;
     }
 
-    public static function setConfig(string $file): void {
+    public static function setConfig(string $file): void
+    {
         $conf = parse_ini_file($file);
         if ($conf === false) {
-            throw new \Exception("Error reading configuration file.");
+            throw new \Exception("Erreur lors de la lecture du fichier de configuration");
         }
-        self::$config = [
-            'dsn' => "mysql:host=" . $conf['host'] . ";dbname=" . $conf['dbname'] . ";charset=utf8",
-            'user' => $conf['username'],
-            'pass' => $conf['password']
-        ];
+        self::$config = $conf;
     }
 
     public function findInfos(string $email) {
