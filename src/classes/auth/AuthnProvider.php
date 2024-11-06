@@ -23,7 +23,6 @@ class AuthnProvider {
             'email' => $user->email,
             'role' => $user->role
         ];
-        print_r($_SESSION['user']);
     }
 
 
