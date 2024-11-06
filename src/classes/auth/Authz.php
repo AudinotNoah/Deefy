@@ -21,7 +21,7 @@ class Authz {
 
         $ownerId = $repo->findPlaylistOwner($playlistId);
         echo $ownerId;
-        echo $user;
+        print_r($user);
         if ($user['id'] !== $ownerId && $user['role'] !== 100) {
             throw new AuthnException("Vous n'avez pas le droit de voir cette playlist");
         }
