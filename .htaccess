@@ -5,8 +5,6 @@
 <Files "index.php">
     Require all granted
 </Files>
-<Files "">
-    Require all granted
-</Files>
+
 
 DirectoryIndex index.php
