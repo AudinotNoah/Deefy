@@ -17,6 +17,7 @@ class DisplayPlaylistAction extends Action {
     
         try {
             $user = AuthnProvider::getSignedInUser();
+            print_r($user);
             if ($id) {
                 Authz::checkPlaylistOwner($id); // active une erreur si faux
                 $playlist = $repo->findPlaylistById($id);
