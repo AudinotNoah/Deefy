@@ -47,6 +47,8 @@ class AddPodcastTrackAction extends Action{
 
         if (move_uploaded_file($_FILES['track_file']['tmp_name'], $destination_path)) {
             $chemin_audio = 'audio/' . $nom_random;
+
+            
             
 
             $podcast_track = new PodcastTrack($track_name, $chemin_audio, 100);
@@ -62,7 +64,12 @@ class AddPodcastTrackAction extends Action{
 
             $PL->ajouterPiste($podcast_track);
 
+            if (is_numeric($track_date)) {
+                $track_date = intval($track_date); 
+            } 
+            else {$track_date = 0;}
             // on fait une array, au lieu de passer 300 arguments
+
             $trackData = [
                 'titre' => $track_name,
                 'genre' => $track_genre,
