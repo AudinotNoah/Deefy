@@ -9,6 +9,7 @@ class AuthnProvider {
     public static function signin(string $email, string $password) {
         $repo = DeefyRepository::getInstance();
         $user = $repo->findInfos($email);
+        print_r($user);
 
         if (!$user) {
             throw new AuthnException("Email invalide");
