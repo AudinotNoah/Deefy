@@ -1,5 +1,3 @@
-;Il faut enlever .exemple du nom et changer les valeurs.
-host = "localhost"
-dbname = "deefy_db"
-username = "test"
-password = "testmdp"
+dsn="mysql:host=localhost;dbname=projet_deefy;charset=utf8"
+username="root"
+password="rootdeefy"
