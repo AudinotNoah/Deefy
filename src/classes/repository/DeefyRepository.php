@@ -135,7 +135,7 @@ class DeefyRepository {
 
     public function addTrack(array $trackData, int $playlistId, int $numeroPiste): int {
         $stmt = $this->pdo->prepare("
-            INSERT INTO Track (titre, genre, duree, filename, type, artiste_album, titre_album ,annee_album)
+            INSERT INTO track (titre, genre, duree, filename, type, artiste_album, titre_album ,annee_album)
             VALUES (:titre, :genre, :duree, :filename, :type, :artiste_album,:titre_album, :annee_album)");
         $stmt->execute($trackData);
         $trackId = (int)$this->pdo->lastInsertId();
@@ -171,7 +171,7 @@ class DeefyRepository {
     
     public function findAllAccessiblePlaylists(int $userId, int $role): array {
         if ($role === 100) {//admin donc tout
-            $stmt = $this->pdo->query("SELECT p.id, p.nom FROM Playlist p");
+            $stmt = $this->pdo->query("SELECT p.id, p.nom FROM playlist p");
         } else {
             $stmt = $this->pdo->prepare("
                 SELECT p.id, p.nom 
